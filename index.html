@@ -8,11 +8,17 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="script.js"></script>
 </head>
-<body onload="start()">
+<body>
 	<div id="container">	
-		<canvas id="root" width="600" height="600" onclick="getPosition(event)"></canvas>
+		<div id="left">
+			<canvas id="root" width="1200" height="720" onclick="getPosition(event)"></canvas>
+		</div>
+		<div id="right">
+			<div id="messageBox">| </div>
+			<div id="startButton">
+				<input type="button" name="single" value="single" onclick="ngon()">
+			</div>
+		</div>
 	</div>
-	<div id="messageBox"></div>
-
 </body>
 </html>

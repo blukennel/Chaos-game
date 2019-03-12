@@ -1,15 +1,30 @@
-body
+#container
 {
-	background-color: #3d3d5c;
+	background-color: #003366;
+	position: fixed;
+	padding: 10px;
+	margin: 0;
+	top: 0;
+	left: 0;
+	width: 1600px;
+	height: 100%;
 }
-
-#root
-{
-	border: 1px solid black;
-}
-
 #messageBox
 {
 	color: white;
 	font-size: 26px;
+}
+#root
+{
+	background-color: #292923;
+}
+#left
+{
+	width: 1200px;
+	float: left;
+	background-color: black;
+}
+#right
+{
+	float: left;
 }
