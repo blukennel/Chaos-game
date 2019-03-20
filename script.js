@@ -8,10 +8,11 @@ var size = 2;
 var speed = 0.001;
 var color = "green";
 var r = 1.35;
-var n = 6;
+var n = 5;
 var instant = true;
 var multipleColor = true;
 var goal = 100000;
+var radius = 240;
 
 class point
 {
@@ -70,7 +71,7 @@ function startSingle()
 		for(i=0; i<goal; i++)
 		{
 			if(multipleColor)
-			color=assignColor(dir);
+				color=assignColor(dir);
 
 			dir = Math.floor(Math.random()*arr.length);
 			drawCircle(middle(pos,arr[dir]),color);
@@ -93,7 +94,7 @@ function ngon()
 	var c = document.getElementById("root");
 	var ctx = c.getContext("2d");
 	ctx.beginPath();
-	ctx.arc(resX/2, resY/2, 240, 0, 2 * Math.PI);
+	ctx.arc(resX/2, resY/2, radius, 0, 2 * Math.PI);
 	ctx.stroke();
 
 	var angle;
@@ -101,11 +102,20 @@ function ngon()
 	for(i=0; i<n; i++)
 	{
 		angle = i*2*Math.PI / n;
-		x = 240 * Math.cos(angle);
-		y = 240 * Math.sin(angle);
+		x = radius * Math.cos(angle);
+		y = radius * Math.sin(angle);
 		add(new point(x+600,y+360));
 	}
 	startSingle();
+}
+function ngon2()
+{
+	r=r+0.01;
+	ngon();
+	var c = document.getElementById("root");
+	var ctx = c.getContext('2d');
+	ctx.clearRect(0, 0, ctx.width, ctx.height);
+	setTimeout(ngon2,speed);
 }
 function assignColor(arg)
 {
